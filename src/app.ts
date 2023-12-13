@@ -37,7 +37,7 @@ app.get('/', (req:any, res:any):void => {
 //   })
 // }
 
-fetchPageTenesseWarn(url).then((data) => console.log(data));
+fetchPageTenesseWarn(url).then((data) => console.log(data.convertedData));
 
 // const sortData = (list:CheerioAPI) => {
 //   list.each((index:number, el:HTMLElement) => {
