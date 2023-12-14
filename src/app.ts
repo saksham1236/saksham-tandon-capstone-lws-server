@@ -4,19 +4,14 @@ import cheerio from 'cheerio';
 import pretty from 'pretty';
 import axios from 'axios';
  //Import Functions
- import { fetchPageTenesseWarn } from './functions/utlis/fetch'
+import { fetchPageTenesseWarn } from './functions/utlis/fetchTennesseWarn'
 
-
-const markup = `
-<ul class="fruits">
-  <li class="fruits__mango"> Mango </li>
-  <li class="fruits__apple"> Apple </li>
-</ul>
-`;
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 const url = `https://www.tn.gov/workforce/general-resources/major-publications0/major-publications-redirect/reports.html`
+
+let tenesseData:any = [];
 
 app.get('/', (req:any, res:any):void => {
     res.send(`<h1>Welcome to my Express App </h1>`)
@@ -37,8 +32,13 @@ app.get('/', (req:any, res:any):void => {
 //   })
 // }
 
-fetchPageTenesseWarn(url).then((data) => console.log(data.convertedData));
+fetchPageTenesseWarn(url).then((data) => {
+  tenesseData = data.convertedData;
+});
 
+app.get('/tenesse', (req:any, res:any):void => {
+  res.json(tenesseData).sendStatus(200);
+})
 // const sortData = (list:CheerioAPI) => {
 //   list.each((index:number, el:HTMLElement) => {
 
