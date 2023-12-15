@@ -1,5 +1,8 @@
 import cheerio from 'cheerio';
 import axios from 'axios';
+import dotenv from 'dotenv';
+import { createClient } from '@supabase/supabase-js';
+
 
 
 async function fetchPageTenesseWarn(url:string){
@@ -20,6 +23,7 @@ async function fetchPageTenesseWarn(url:string){
                 parsedItem = parsedItem.map((text:string) => text.trim())
                 return parsedItem;
             })
+
             parsedItems = {
                 datePosted: parsedItems[0][1],
                 companyName: parsedItems[1][1],
@@ -27,8 +31,11 @@ async function fetchPageTenesseWarn(url:string){
                 workersAffected: parsedItems[3][1],
                 layoffDate: parsedItems[4][1]
             }
+
             convertedData.push(parsedItems);  
         })
+
+
 
     } catch(error) {
         console.error(error)
