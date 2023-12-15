@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@supabase/supabase-js": "^2.39.0",
     "@types/cheerio": "^0.22.35",
     "@types/dotenv": "^8.2.0",
     "axios": "^1.6.2",
@@ -29,6 +30,7 @@
     "pretty": "^2.0.0",
     "save": "^2.9.0",
     "save-dev": "^0.0.1-security",
+    "supabase": "^1.123.4",
     "ts-node": "^10.9.2"
   }
 }
