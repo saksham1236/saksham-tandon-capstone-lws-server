@@ -1,8 +1,8 @@
 import { createClient } from "@supabase/supabase-js"
 import dotenv from 'dotenv';
 
-
 dotenv.config()
+
 const supabaseUrl:string = `https://rmbegvjfeydzvfaqwhow.supabase.co`
 const apiKey:any = process.env.API_KEY;
 

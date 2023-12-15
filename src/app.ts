@@ -6,7 +6,7 @@ import axios from 'axios';
  //Import Functions
 import { fetchPageTenesseWarn } from './functions/utlis/fetchTennesseWarn'
 import { fetchDatabase } from './functions/utlis/fetchDatabase';
-
+import { writeToDatabase } from './functions/utlis/writeDatabase'
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -35,7 +35,7 @@ app.get('/', (req:any, res:any):void => {
 
 fetchPageTenesseWarn(url).then((data) => {
   tenesseData = data.convertedData;
-  fetchDatabase();
+  writeToDatabase(tenesseData)
 });
 
 app.get('/tenesse', (req:any, res:any):void => {

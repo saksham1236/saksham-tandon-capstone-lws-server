@@ -8,6 +8,6 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "src/functions/utlis/fetchDatabase.js"],
     "exclude": ["node_modules"]
   }
