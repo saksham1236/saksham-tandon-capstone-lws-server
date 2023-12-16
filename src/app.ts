@@ -4,8 +4,8 @@ import cheerio from 'cheerio';
 import pretty from 'pretty';
 import axios from 'axios';
  //Import Functions
-import { fetchPageTenesseWarn } from './functions/utlis/fetchTennesseWarn'
-import { fetchDatabase } from './functions/utlis/fetchDatabase';
+import { fetchPageTenesseWarn } from './functions/fetchTennesseWarn'
+
 import { writeToDatabase } from './functions/utlis/writeDatabase'
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -36,17 +36,12 @@ app.get('/', (req:any, res:any):void => {
 fetchPageTenesseWarn(url).then((data) => {
   tenesseData = data.convertedData;
   writeToDatabase(tenesseData)
-});
+}).then;
+
 
 app.get('/tenesse', (req:any, res:any):void => {
   res.json(tenesseData);
 })
-// const sortData = (list:CheerioAPI) => {
-//   list.each((index:number, el:HTMLElement) => {
-
-//   })
-// }
-//  scrapeData();
 
 app.listen(PORT, () => {
     console.log(`app running on port ${PORT}`)

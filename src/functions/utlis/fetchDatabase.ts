@@ -18,7 +18,7 @@ const fetchDatabase = async() => {
       console.log(error)
       return
     }
-    console.log(`supabase: `, data);
+      return data
   }
 
   export { fetchDatabase };

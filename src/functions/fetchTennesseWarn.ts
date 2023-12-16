@@ -1,9 +1,5 @@
 import cheerio from 'cheerio';
 import axios from 'axios';
-import dotenv from 'dotenv';
-import { createClient } from '@supabase/supabase-js';
-
-
 
 async function fetchPageTenesseWarn(url:string){
     let parsedData:any;
