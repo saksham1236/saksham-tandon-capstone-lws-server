@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js"
-import { UUID } from "crypto";
 import dotenv from 'dotenv';
 import createHash from "./createHash";
 
@@ -45,7 +44,6 @@ const writeToDatabase = async(scrappedData:scrappedData) => {
         layoffDate: element.layoffDate,
         hash: createdHash
       }
-      console.log(entry)
       insertDataList.push(entry);
     });
 
