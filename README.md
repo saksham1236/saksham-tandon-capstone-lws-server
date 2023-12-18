@@ -58,4 +58,4 @@ Start the React Server
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `search`      | `string` | **Required**. Search Query for fetching a specific list company with queried string |
+| `search`      | `string` | **Required**. Search Query for fetching a specific list for the company with queried string |
