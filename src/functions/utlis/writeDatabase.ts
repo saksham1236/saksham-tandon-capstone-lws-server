@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js"
-import { UUID } from "crypto";
 import dotenv from 'dotenv';
 import createHash from "./createHash";
 
