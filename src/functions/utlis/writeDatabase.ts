@@ -44,7 +44,6 @@ const writeToDatabase = async(scrappedData:scrappedData) => {
         layoffDate: element.layoffDate,
         hash: createdHash
       }
-      console.log(entry)
       insertDataList.push(entry);
     });
 

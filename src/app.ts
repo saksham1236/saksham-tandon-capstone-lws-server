@@ -8,6 +8,7 @@ import { fetchPageTenesseWarn } from './functions/fetchTennesseWarn'
 //Import Utils
 import { fetchDatabase } from './functions/utlis/fetchDatabase';
 import { writeToDatabase } from './functions/utlis/writeDatabase'
+import { searchDatabase } from './functions/utlis/searchDatabase';
 
 dotenv.config();
 const app = express();
@@ -47,6 +48,14 @@ app.get(`/list`, async (req:any, res:any):Promise<void> => {
 
 app.get('/tenesse', (req:any, res:any):void => {
   res.json(tenesseData);
+})
+
+app.get('/search/:query', (req:any, res: any) => {
+  searchDatabase(req.params.query)
+  .then((data: any) => {
+    res.status(200).json(data);
+    console.log(data);
+  })
 })
 
 app.listen(PORT, () => {
