@@ -1,9 +1,9 @@
 
 # Layoff Detector System Server
 
-This app was built to scrape layoff notices, right now it only scrapes Tennesse.gov but I will add more websites later.
+## Front End Link and Project Demo 
 
-
+<a href = "https://github.com/saksham1236/saksham-tandon-capstone-lws-front-end">https://github.com/saksham1236/saksham-tandon-capstone-lws-front-end</a>
 
 
 ## Demo
