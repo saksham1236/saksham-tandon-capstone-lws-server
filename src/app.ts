@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
  //Import Functions
-import { fetchPageTenesseWarn } from './functions/fetchTennesseWarn'
+import { fetchPageTenesseWarn, fetchPageTenesseWarn2024 } from './functions/fetchTennesseWarn'
 
 //Import Utils
 import { fetchDatabase } from './functions/utlis/fetchDatabase';
@@ -31,7 +31,7 @@ function refreshDatabase() {
 }
 
 refreshDatabase();
-
+fetchPageTenesseWarn2024(url);
 setInterval(refreshDatabase, 900000);
 
 app.get(`/list`, async (req:any, res:any):Promise<void> => {

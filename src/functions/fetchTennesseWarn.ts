@@ -39,4 +39,43 @@ async function fetchPageTenesseWarn(url:string){
     return {parsedData, convertedData};
 }
 
-export { fetchPageTenesseWarn };
+async function fetchPageTenesseWarn2024(url:string){
+    let parsedData:any;
+    let convertedData:any = [];
+    try {
+        const { data } = await axios.get(url);
+
+        const $ = cheerio.load(await data.toString());
+
+        parsedData = $("#DataTables_Table_0 > tbody");
+        
+
+        // parsedData.find('p').each((i:number, item:HTMLAllCollection) => {
+        //     let parsedItems:any = $(item).text().split("|");
+        //     parsedItems = parsedItems.map((parsedItem:any) => {
+        //         parsedItem = parsedItem.trim();
+        //         parsedItem = parsedItem.split(':');
+        //         parsedItem = parsedItem.map((text:string) => text.trim())
+        //         return parsedItem;
+        //     })
+
+        //     parsedItems = {
+        //         datePosted: parsedItems[0][1],
+        //         companyName: parsedItems[1][1],
+        //         place: `${parsedItems[2][1]}, Tennessee`,
+        //         workersAffected: parsedItems[3][1],
+        //         layoffDate: parsedItems[4][1]
+        //     }
+
+        //     convertedData.push(parsedItems);  
+        // })
+
+
+
+    } catch(error) {
+        console.error(error)
+    }
+    return {parsedData, convertedData};
+}
+
+export { fetchPageTenesseWarn, fetchPageTenesseWarn2024 };
