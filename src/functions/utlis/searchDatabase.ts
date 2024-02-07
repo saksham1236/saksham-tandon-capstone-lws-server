@@ -20,7 +20,7 @@ const searchDatabase = async(query:string) => {
       console.log(error)
       return
     }
-        console.log(data);
+      console.log(data);
       return data
   }
 

@@ -13,14 +13,13 @@ const fetchDatabase = async() => {
     let { data, error } = await supabase
     .from('Warn-notices-consolidated')
     .select('*')
+    .order('datePosted', { ascending: false })
     
     if (error) {
       console.log(error)
       return
     }
-      data.sort(function(a:any, b:any) {
-        return new Date(b.datePosted) > new Date(a.datePosted)
-      })
+
       return data
   }
 
