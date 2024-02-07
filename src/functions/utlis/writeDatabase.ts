@@ -47,7 +47,7 @@ const writeToDatabase = async(scrappedData:scrappedData) => {
       insertDataList.push(entry);
     });
 
-    const { data, error} = await supabase
+    const { data, error } = await supabase
     .from('Warn-notices-consolidated')
     .insert(insertDataList);
 

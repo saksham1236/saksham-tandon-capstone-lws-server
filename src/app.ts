@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
  //Import Functions
-import { fetchPageTenesseWarn } from './functions/fetchTennesseWarn'
+import { fetchPageTenesseWarn } from './functions/fetchTennesseWarn';
 
 //Import Utils
 import { fetchDatabase } from './functions/utlis/fetchDatabase';
@@ -26,23 +26,21 @@ app.get('/', (req:any, res:any):void => {
 function refreshDatabase() {
   fetchPageTenesseWarn(url).then((data) => {
     tenesseData = data.convertedData;
-    writeToDatabase(tenesseData)
+    writeToDatabase(tenesseData);
   })
 }
 
 refreshDatabase();
-
 setInterval(refreshDatabase, 900000);
 
 app.get(`/list`, async (req:any, res:any):Promise<void> => {
   fetchDatabase()
   .then((data:any) => {
     res.status(200).json(data);
-    console.log(`data sent`)
-  })
-  .catch((error) => {
+    console.log(`data sent`);
+  }).catch((error) => {
     res.status(500).json({error: `error occured: ${error}`})
-    console.log(error)
+    console.log(error);
   })
 })
 
@@ -54,7 +52,6 @@ app.get('/search/:query', (req:any, res: any) => {
   searchDatabase(req.params.query)
   .then((data: any) => {
     res.status(200).json(data);
-    console.log(data);
   })
 })
 
