@@ -18,6 +18,9 @@ const fetchDatabase = async() => {
       console.log(error)
       return
     }
+      data.sort(function(a:any, b:any) {
+        return new Date(b.datePosted) > new Date(a.datePosted)
+      })
       return data
   }
 
